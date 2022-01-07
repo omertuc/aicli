@@ -330,6 +330,7 @@ class AssistedClient(object):
     def download_iso(self, name, path):
         infra_env = self.info_infra_env(name).to_dict()
         iso_url = infra_env['download_url']
+        info("Downloading %s to %s" % (iso_url, path))
         urlretrieve(iso_url, "%s/%s.iso" % (path, name))
 
     def download_initrd(self, name, path):
